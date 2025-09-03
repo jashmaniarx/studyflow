@@ -2,41 +2,58 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
-All colors MUST be HSL.
-*/
+/* StudyFlow Design System - Glass morphism with green palette */
+
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Open+Sans:wght@400;500;600&display=swap');
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
+    /* StudyFlow Color Palette */
+    --background: 120 50% 97%; /* Sage #E8F5E9 */
+    --foreground: 120 30% 15%;
 
-    --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
+    --card: 0 0% 100%; /* White with glass effect */
+    --card-foreground: 120 30% 15%;
+    --card-glass: 0 0% 100% / 0.4; /* Glass background */
 
     --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
+    --popover-foreground: 120 30% 15%;
 
-    --primary: 222.2 47.4% 11.2%;
-    --primary-foreground: 210 40% 98%;
+    --primary: 120 46% 33%; /* Forest Green #2E7D32 */
+    --primary-foreground: 0 0% 100%;
 
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
+    --secondary: 120 35% 77%; /* Mint Green #A5D6A7 */
+    --secondary-foreground: 120 46% 33%;
 
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
+    --muted: 120 50% 90%;
+    --muted-foreground: 120 20% 45%;
 
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
+    --accent: 115 50% 35%; /* Olive #558B2F */
+    --accent-foreground: 0 0% 100%;
 
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
 
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
+    --border: 0 0% 100% / 0.25; /* Glass border */
+    --input: 0 0% 100% / 0.4;
+    --ring: 115 50% 35%; /* Olive for focus rings */
 
-    --radius: 0.5rem;
+    --radius: 1.5rem; /* 24px */
+    --radius-lg: 1.75rem; /* 28px */
+
+    /* Glass Effects */
+    --glass-blur: 30px;
+    --glass-border: 0 0% 100% / 0.25;
+    --glass-shadow: 120 46% 33% / 0.15;
+
+    /* Gradients */
+    --gradient-hero: linear-gradient(135deg, hsl(120 35% 77%), hsl(120 46% 33%));
+    --gradient-glass: linear-gradient(135deg, hsl(0 0% 100% / 0.4), hsl(0 0% 100% / 0.1));
+
+    /* Motion */
+    --transition-smooth: all 350ms ease-out;
+    --transition-micro: all 120ms ease-out;
+    --transition-focus: outline 200ms ease-out;
 
     --sidebar-background: 0 0% 98%;
 
@@ -56,41 +73,43 @@ All colors MUST be HSL.
   }
 
   .dark {
-    --background: 222.2 84% 4.9%;
-    --foreground: 210 40% 98%;
+    /* Dark Surface #0F1510 */
+    --background: 100 30% 8%;
+    --foreground: 0 0% 92%;
 
-    --card: 222.2 84% 4.9%;
-    --card-foreground: 210 40% 98%;
+    --card: 100 30% 8%;
+    --card-foreground: 0 0% 92%;
+    --card-glass: 0 0% 100% / 0.05; /* Dark glass cards */
 
-    --popover: 222.2 84% 4.9%;
-    --popover-foreground: 210 40% 98%;
+    --popover: 100 30% 8%;
+    --popover-foreground: 0 0% 92%;
 
-    --primary: 210 40% 98%;
-    --primary-foreground: 222.2 47.4% 11.2%;
+    --primary: 120 46% 33%; /* Keep Forest Green */
+    --primary-foreground: 0 0% 100%;
 
-    --secondary: 217.2 32.6% 17.5%;
-    --secondary-foreground: 210 40% 98%;
+    --secondary: 0 0% 100% / 0.05;
+    --secondary-foreground: 0 0% 82%;
 
-    --muted: 217.2 32.6% 17.5%;
-    --muted-foreground: 215 20.2% 65.1%;
+    --muted: 0 0% 100% / 0.1;
+    --muted-foreground: 0 0% 64%;
 
-    --accent: 217.2 32.6% 17.5%;
-    --accent-foreground: 210 40% 98%;
+    --accent: 115 50% 35%; /* Keep Olive */
+    --accent-foreground: 0 0% 100%;
 
-    --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 210 40% 98%;
+    --destructive: 0 62% 50%;
+    --destructive-foreground: 0 0% 100%;
 
-    --border: 217.2 32.6% 17.5%;
-    --input: 217.2 32.6% 17.5%;
-    --ring: 212.7 26.8% 83.9%;
-    --sidebar-background: 240 5.9% 10%;
-    --sidebar-foreground: 240 4.8% 95.9%;
-    --sidebar-primary: 224.3 76.3% 48%;
-    --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 240 3.7% 15.9%;
-    --sidebar-accent-foreground: 240 4.8% 95.9%;
-    --sidebar-border: 240 3.7% 15.9%;
-    --sidebar-ring: 217.2 91.2% 59.8%;
+    --border: 0 0% 100% / 0.08; /* Dark glass border */
+    --input: 0 0% 100% / 0.05;
+    --ring: 115 50% 35%;
+
+    /* Dark Glass Effects */
+    --glass-border: 0 0% 100% / 0.08;
+    --glass-shadow: 120 46% 33% / 0.1;
+
+    /* Gradients */
+    --gradient-hero: linear-gradient(135deg, hsl(120 35% 25%), hsl(120 46% 15%));
+    --gradient-glass: linear-gradient(135deg, hsl(0 0% 100% / 0.05), hsl(0 0% 100% / 0.02));
   }
 }
 
@@ -100,6 +119,104 @@ All colors MUST be HSL.
   }
 
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background text-foreground font-primary antialiased;
+  }
+}
+
+@layer components {
+  /* Glass Morphism Components */
+  .glass-card {
+    @apply bg-card-glass backdrop-blur-[30px] border border-glass-border rounded-[24px];
+    box-shadow: 0 10px 30px hsl(var(--glass-shadow));
+  }
+
+  .glass-button {
+    @apply bg-primary text-primary-foreground backdrop-blur-[30px] rounded-[20px] transition-smooth;
+    background: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--accent)));
+    box-shadow: 0 4px 16px hsl(var(--glass-shadow));
+  }
+
+  .glass-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px hsl(var(--glass-shadow));
+  }
+
+  .glass-button:active {
+    transform: scale(0.98);
+  }
+
+  .glass-button:focus-visible {
+    @apply outline-2 outline-ring outline-offset-2;
+    transition: var(--transition-focus);
+  }
+
+  /* Focus rings for accessibility */
+  .focus-ring:focus-visible {
+    @apply outline-2 outline-ring outline-offset-2;
+    transition: var(--transition-focus);
+  }
+
+  /* Scroll reveal animations */
+  .fade-in-up {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 450ms ease-out, transform 450ms ease-out;
+  }
+
+  .fade-in-up.in-view {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* Hero gradient text */
+  .gradient-text {
+    background: var(--gradient-hero);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  /* Particle animations */
+  @keyframes float-up {
+    0% {
+      opacity: 0;
+      transform: translateY(100px) translateX(0);
+    }
+    50% {
+      opacity: 0.6;
+    }
+    100% {
+      opacity: 0;
+      transform: translateY(-100px) translateX(20px);
+    }
+  }
+
+  .particle {
+    animation: float-up 8s linear infinite;
+  }
+
+  .particle:nth-child(2) { animation-delay: 1s; }
+  .particle:nth-child(3) { animation-delay: 2s; }
+  .particle:nth-child(4) { animation-delay: 3s; }
+}
+
+@layer utilities {
+  .text-balanced {
+    text-wrap: balance;
+  }
+}
+
+/* Reduced motion preferences */
+@media (prefers-reduced-motion: reduce) {
+  .particle {
+    animation: none;
+  }
+  
+  .fade-in-up {
+    transition-duration: 0ms;
+  }
+  
+  .glass-button {
+    transition: none;
   }
 }
