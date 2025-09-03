@@ -1,9 +1,13 @@
+import { ThemeProvider } from 'next-themes';
 import { useEffect } from 'react';
 import Header from '@/components/Header';
 import Hero from '@/components/Hero';
 import StudyTracks from '@/components/StudyTracks';
 import Features from '@/components/Features';
 import Testimonials from '@/components/Testimonials';
+import Pricing from '@/components/Pricing';
+import About from '@/components/About';
+import FAQ from '@/components/FAQ';
 import CallToAction from '@/components/CallToAction';
 import Footer from '@/components/Footer';
 import { useScrollAnimation } from '@/hooks/useScrollAnimation';
@@ -19,9 +23,13 @@ const Index = () => {
         e.preventDefault();
         const element = document.querySelector(target.hash);
         if (element) {
-          element.scrollIntoView({
+          const headerHeight = 80; // Account for fixed header
+          const elementPosition = element.getBoundingClientRect().top + window.scrollY;
+          const offsetPosition = elementPosition - headerHeight;
+          
+          window.scrollTo({
+            top: offsetPosition,
             behavior: 'smooth',
-            block: 'start',
           });
         }
       }
@@ -32,17 +40,22 @@ const Index = () => {
   }, []);
 
   return (
-    <div className="min-h-screen">
-      <Header />
-      <main>
-        <Hero />
-        <StudyTracks />
-        <Features />
-        <Testimonials />
-        <CallToAction />
-      </main>
-      <Footer />
-    </div>
+    <ThemeProvider attribute="class" defaultTheme="light" enableSystem={false}>
+      <div className="min-h-screen">
+        <Header />
+        <main>
+          <Hero />
+          <StudyTracks />
+          <Features />
+          <Testimonials />
+          <Pricing />
+          <About />
+          <FAQ />
+          <CallToAction />
+        </main>
+        <Footer />
+      </div>
+    </ThemeProvider>
   );
 };
 

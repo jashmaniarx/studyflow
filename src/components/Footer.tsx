@@ -78,7 +78,7 @@ const Footer = () => {
 
         <div className="mt-12 pt-8 border-t border-glass-border flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
           <div className="text-sm text-muted-foreground">
-            © 2024 StudyFlow. All rights reserved.
+            © 2025 StudyFlow. All rights reserved.
           </div>
           <div className="text-sm text-muted-foreground">
             StudyFlow by Jash Maniar

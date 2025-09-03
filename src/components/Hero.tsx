@@ -52,23 +52,23 @@ const Hero = () => {
           {/* Left: Content */}
           <div className="space-y-8">
             <div className="space-y-4">
-              <h1 className="text-5xl lg:text-7xl font-bold font-primary text-balanced leading-tight">
+              <h1 className="text-5xl lg:text-7xl font-bold font-primary text-balanced leading-tight bounce-in">
                 Study smarter.{' '}
-                <span className="gradient-text">See progress.</span>
+                <span className="progress-gradient">See progress.</span>
               </h1>
               <p className="text-xl lg:text-2xl text-foreground/80 text-balanced max-w-xl">
                 Tracks, quizzes, and visual notes in one clean space.
               </p>
             </div>
             
-            <div className="flex flex-col sm:flex-row gap-4">
-              <Button size="lg" className="glass-button text-lg px-8 py-4 focus-ring">
+            <div className="flex flex-col sm:flex-row gap-4 fade-in-up" style={{ animationDelay: '200ms' }}>
+              <Button size="lg" className="glass-button text-lg px-8 py-4 focus-ring hover-glow pulse-glow">
                 Start free
               </Button>
               <Button 
                 variant="outline" 
                 size="lg" 
-                className="text-lg px-8 py-4 glass-card hover:bg-card-glass focus-ring"
+                className="text-lg px-8 py-4 glass-card hover:bg-card-glass focus-ring hover-lift"
               >
                 See a live demo
               </Button>
